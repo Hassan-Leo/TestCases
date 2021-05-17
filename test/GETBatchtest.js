@@ -52,7 +52,7 @@ describe("Testing Batch Api for data retrival",()=> {
             .get("")
             .set(auth,token)
             .end((err,resp)=> {
-                //expect(resp.body.totalcount).to.be.a("number");
+                expect(resp.body.totalcount).to.be.a("number");
                 if (resp.body.list.length>0){
                     for (i=0;i<resp.body.list.length;i++){
                         expect(resp.body.list[i].createdby).to.have.keys("name","email","org_name","org_id").to.be.string;
