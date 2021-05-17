@@ -1,4 +1,4 @@
-let data=require("../Ecert.postman_collection.json");
+let data=require("./Ecert.postman_collection.json");
 let chai = require("chai");
 let expect = require("chai").expect;
 let chaihttp = require("chai-http");
@@ -8,8 +8,6 @@ chai.use(chaihttp);
 
 auth="Authorization"
 token="Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MDYwNzNlNGIyYmVmZTQ4NDg4NGMyMTAiLCJlbWFpbCI6Iml5YXFvb2I2MkBnbWFpbC5jb20iLCJuYW1lIjoiTXVoYW1tYWQgSXNtYWlsIiwicm9sZXMiOlsiSXNzdWVyIiwiQWRtaW4iXSwib3JnX2lkIjoiNjA2MDZkMGE5NTQ1YWYzNDU4OWQ2NTA1IiwiaWF0IjoxNjIxMjUxMzQ1LCJleHAiOjE2MjE0MjQxNDV9.KflJIrX08v0jotyp3iizH5cdnREhcrRv_c6VN_MMPaI"
-token1="Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MDYwNmNhNmM3OGExMTRiZThkMjQ4MDYiLCJlbWFpbCI6Im11aGFtbWFkcmFmYXkxNTFAZ21haWwuY29tIiwibmFtZSI6IlJhZmF5Iiwicm9sZX"
-raw= {"email":"iyaqoob62@gmail.com","password":"123123"}
 
 describe("Testing the Certificate Retrival Data", ()=> {
     describe("To check the Single Certificate API's response which is GET reuqest", () => {
