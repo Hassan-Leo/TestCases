@@ -30,6 +30,7 @@ describe("Testing the Certificate Retrival Data", ()=> {
             .get("")
             .set(auth, token)
             .end((err, resp)=>{
+                expect(resp.body.list).exist;
                 expect(resp.body).to.have.keys("list","totalcount");
                 for(i=0;i<resp.body.list.length;i++){
                     if(resp.body.list[i].expiry_date){
@@ -47,6 +48,7 @@ describe("Testing the Certificate Retrival Data", ()=> {
             .get("")
             .set(auth, token)
             .end((err, resp)=>{
+                expect(resp.body.list).exist;
                 expect(resp.body.list).to.be.an('Array');
                 if(resp.body.list.length> 0){
                     for(i=0;i<resp.body.list.length;i++){

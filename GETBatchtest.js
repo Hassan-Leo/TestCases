@@ -1,4 +1,4 @@
-let data=require("../Ecert.postman_collection.json");
+let data=require("./Ecert.postman_collection.json");
 let chai = require("chai");
 let expect = require("chai").expect;
 let chaihttp = require("chai-http");
@@ -32,8 +32,8 @@ describe("Testing Batch Api for data retrival",()=> {
             .get("")
             .set(auth,token)
             .end((err,resp)=>{
-                //expect(resp.body).to.have.property("list");
-                //expect(resp.body).to.have.property("totalcount");
+                expect(resp.body).to.have.property("list");
+                expect(resp.body).to.have.property("totalcount");
                 if (resp.body.totalcount>0){
                     for (i=0;i<resp.body.totalcount;i++){
                         expect(resp.body.list[i]).to.have.all.keys("createdby","expiry_date","publish","created_date","_id","batch_name","title","description","instructor_name","logo","signature","template_id","updatedby","__v");
@@ -52,9 +52,9 @@ describe("Testing Batch Api for data retrival",()=> {
             .get("")
             .set(auth,token)
             .end((err,resp)=> {
-                expect(resp.body).to.have.property("totalcount").to.be.a("number");
-                if (resp.body.totalcount>0){
-                    for (i=0;i<resp.body.totalcount;i++){
+                //expect(resp.body.totalcount).to.be.a("number");
+                if (resp.body.list.length>0){
+                    for (i=0;i<resp.body.list.length;i++){
                         expect(resp.body.list[i].createdby).to.have.keys("name","email","org_name","org_id").to.be.string;
                         expect(resp.body.list[i].publish).to.have.property("status").to.be.a('boolean');
                         expect(resp.body.list[i].publish).to.have.property("processing").to.be.a('boolean');
@@ -91,9 +91,12 @@ describe("Testing Batch Api for data retrival",()=> {
             .get("")
             .set(auth,token)
             .end((err,resp)=> {
-                //expect(resp.body.totalcount).to.be.greaterThanOrEqual(0);
-                if (resp.body.totalcount>0){
-                    for (i=0;i<resp.body.totalcount;i++){
+                if(resp.body.totalcount){
+                    expect(resp.body.totalcount).to.be.greaterThanOrEqual(0);
+                    console.log("not exist");
+                }
+                if (resp.body.list.length>0){
+                    for (i=0;i<resp.body.list.length;i++){
                         expect(resp.body.list[i].__v).to.be.equal(0);
                         expect(resp.body.list[i].publish).to.have.property("status").to.be.a('boolean').to.be.false;
                         expect(resp.body.list[i].publish).to.have.property("processing").to.be.a('boolean').to.be.false;
