@@ -1,5 +1,5 @@
 # TestCases
 To run the testcases in terminal use
-'''bash
+```bash
 npm run test
-'''
+```
