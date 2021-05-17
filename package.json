@@ -1,0 +1,31 @@
+{
+  "name": "mochatest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
+    "mocha": "^8.3.2"
+  },
+  "description": "FYP Testing # Command to run  npm run test",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hassan-Leo/Testingproject.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Hassan-Leo/Testingproject/issues"
+  },
+  "homepage": "https://github.com/Hassan-Leo/Testingproject#readme"
+}
