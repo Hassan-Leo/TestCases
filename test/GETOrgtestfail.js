@@ -10,11 +10,11 @@ auth="Authorization"
 raw={"email":"hassansiddiqi0@gmail.com","password":"123123"}
 raw1= {"email":"muhammadaamir.aj1@gmail.com","password":"123123"}
 
-token="Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MDY5Y2I2MTI2NDk4YzE3ODRhOTY3OTciLCJlbWFpbCI6Imhhc3NhbnNpZGRpcWkwQGdtYWlsLmNvbSIsIm5hbWUiOiJIYXNzYW4gQWhtZWQiLCJyb2xlcyI6WyJJc3N1ZXIiLCJBZG1pbiJdLCJvcmdfaWQiOiI2MDYwNmQ4Zjk1NDVhZjM0NTg5ZDY1MDciLCJpYXQiOjE2MjAyMDUyOTMsImV4cCI6MTYyMDM3ODA5M30.bX5pdWXbtcfY9m2vzcKnP8AWjlTXSsDZRIVp9XUtuU8"
-token1="Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MDYwNmRjZDk1NDVhZjM0NTg5ZDY1MDgiLCJlbWFpbCI6Im11aGFtbWFkYWFtaXIuYWoxQGdtYWlsLmNvbSIsIm5hbWUiOiJNdWhhbW1hZCBBYW1pciIsInJvbGVzIjpbIklzc3VlciIsIkFkbWluIl0sIm9yZ19pZCI6IjYwNjA2ZDhmOTU0NWFmMzQ1ODlkNjUwNyIsImlhdCI6MTYyMDIwNTE5MCwiZXhwIjoxNjIwMzc3OTkwfQ.FDLdQmunI-LiuksOFmLF-YXfAnq7UJJXJ-7ya44wlNU"
+token="Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MDYwNzNlNGIyYmVmZTQ4NDg4NGMyMTAiLCJlbWFpbCI6Iml5YXFvb2I2MkBnbWFpbC5jb20iLCJuYW1lIjoiTXVoYW1tYWQgSXNtYWlsIiwicm9sZXMiOlsiSXNzdWVyIiwiQWRtaW4iXSwib3JnX2lkIjoiNjA2MDZkMGE5NTQ1YWYzNDU4OWQ2NTA1IiwiaWF0IjoxNjIxMzc1ODYzLCJleHAiOjE2MjE1NDg2NjN9.zCjyyRdIrAJCEorQP7RlhL3n0NlMOIjYsxRIqRA3gUE"
+token1="Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MDg2ZjZiYTBkOTAwODAwMTdkNzBkNzEiLCJlbWFpbCI6Im11aGFtbWFkQGdtYWlsLmNvbSIsIm5hbWUiOiJNdWhhbW1hZCIsInJvbGVzIjpbIklzc3VlciJdLCJvcmdfaWQiOiI2MDYwNmQwYTk1NDVhZjM0NTg5ZDY1MDUiLCJpYXQiOjE2MjEzNzYwNDMsImV4cCI6MTYyMTU0ODg0M30.JYXEm6kJgPhg5XLG-Q27VgmDKkk7L4ZjrnWFSNPTq20"
 
 describe("Testing GET api Organization for Unauthorized Access", ()=> {
-    describe("When admin or issuer user access the data", ()=> {
+    describe("When admin user access the data", ()=> {
         it("(Admin)To check the response of the request", (done)=>{
             chai.request(data.item[16].name)
             .get("")

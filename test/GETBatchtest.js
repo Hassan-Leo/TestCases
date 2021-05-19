@@ -8,10 +8,10 @@ chai.use(chaihttp);
 auth="Authorization"
 
 raw= {"email":"iyaqoob62@gmail.com","password":"123123"}
-raw1={"email": "hassansiddiqi0@gmail.com", "password":"123123"}
+raw1={"email":"hassansiddiqi0@gmail.com", "password":"123123"}
 
 token="Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MDYwNzNlNGIyYmVmZTQ4NDg4NGMyMTAiLCJlbWFpbCI6Iml5YXFvb2I2MkBnbWFpbC5jb20iLCJuYW1lIjoiTXVoYW1tYWQgSXNtYWlsIiwicm9sZXMiOlsiSXNzdWVyIiwiQWRtaW4iXSwib3JnX2lkIjoiNjA2MDZkMGE5NTQ1YWYzNDU4OWQ2NTA1IiwiaWF0IjoxNjIxMjUxMzQ1LCJleHAiOjE2MjE0MjQxNDV9.KflJIrX08v0jotyp3iizH5cdnREhcrRv_c6VN_MMPaI"
-token1="Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MDY5Y2I2MTI2NDk4YzE3ODRhOTY3OTciLCJlbWFpbCI6Imhhc3NhbnNpZGRpcWkwQGdtYWlsLmNvbSIsIm5hbWUiOiJIYXNzYW4gQWhtZWQiLCJyb2xlcyI6WyJJc3N1ZXIiLCJBZG1pbiJdLCJvcmdfaWQiOiI2MDYwNmQ4Zjk1NDVhZjM0NTg5ZDY1MDciLCJpYXQiOjE2MjA1NTQ4ODYsImV4cCI6MTYyMDcyNzY4Nn0.ord4zB4OPk8-zzgaR4qwsaxaihkWE44N1pkaYWvXTGg"
+token1="Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MDg2ZjZiYTBkOTAwODAwMTdkNzBkNzEiLCJlbWFpbCI6Im11aGFtbWFkQGdtYWlsLmNvbSIsIm5hbWUiOiJNdWhhbW1hZCIsInJvbGVzIjpbIklzc3VlciJdLCJvcmdfaWQiOiI2MDYwNmQwYTk1NDVhZjM0NTg5ZDY1MDUiLCJpYXQiOjE2MjEzNzYwNDMsImV4cCI6MTYyMTU0ODg0M30.JYXEm6kJgPhg5XLG-Q27VgmDKkk7L4ZjrnWFSNPTq20"
 
 describe("Testing Batch Api for data retrival",()=> {
     describe("Testing GET request for Authorized personnel",()=> {
@@ -34,8 +34,8 @@ describe("Testing Batch Api for data retrival",()=> {
             .end((err,resp)=>{
                 expect(resp.body).to.have.property("list");
                 expect(resp.body).to.have.property("totalcount");
-                if (resp.body.totalcount>0){
-                    for (i=0;i<resp.body.totalcount;i++){
+                if (resp.body.list.length>0){
+                    for (i=0;i<resp.list.length;i++){
                         expect(resp.body.list[i]).to.have.all.keys("createdby","expiry_date","publish","created_date","_id","batch_name","title","description","instructor_name","logo","signature","template_id","updatedby","__v");
                         expect(resp.body.list[i].createdby).to.have.keys("name","email","org_name","org_id");
                         expect(resp.body.list[i].publish).to.have.keys("status","processing");
@@ -93,7 +93,6 @@ describe("Testing Batch Api for data retrival",()=> {
             .end((err,resp)=> {
                 if(resp.body.totalcount){
                     expect(resp.body.totalcount).to.be.greaterThanOrEqual(0);
-                    console.log("not exist");
                 }
                 if (resp.body.list.length>0){
                     for (i=0;i<resp.body.list.length;i++){
