@@ -91,9 +91,7 @@ describe("Testing Batch Api for data retrival",()=> {
             .get("")
             .set(auth,token)
             .end((err,resp)=> {
-                if(resp.body.totalcount){
                     expect(resp.body.totalcount).to.be.greaterThanOrEqual(0);
-                }
                 if (resp.body.list.length>0){
                     for (i=0;i<resp.body.list.length;i++){
                         expect(resp.body.list[i].__v).to.be.equal(0);
